@@ -1,0 +1,15 @@
+2024/03/06 18:38:25.369	INFO	init sys.fbmessager success!
+2024/03/06 18:38:25.377	INFO	服务[resstation] 初始化完成!
+2024/03/06 18:38:25.377	INFO	服务[resstation:1.0.0] 启动完成!
+2024/03/06 18:38:25.378	ERROR	cbase/servicebase.go:91	服务[resstation:1.0.0]崩溃啦!------> runtime error: invalid memory address or nil pointer dereference: goroutine 12 [running]:
+github.com/liwei1dao/lego/core/cbase.(*ServiceBase).Run.func1.1()
+	C:/Users/Administrator/go/pkg/mod/github.com/liwei1dao/lego@v0.0.0-20240305114651-63117f8d82fc/core/cbase/servicebase.go:90 +0x96
+panic({0xdaca40, 0x12bb460})
+	C:/Program Files/Go/src/runtime/panic.go:844 +0x25a
+fbrobot/modules/fbrobot.(*FBRobot).Init(0xc000498410, {0xef8ac0, 0xc000091470}, {0xef75f0, 0xc000498410}, {0xef0620, 0xc000162000})
+	E:/go/fbchatrobot/modules/fbrobot/module.go:38 +0xdf
+github.com/liwei1dao/lego/core/cbase.(*ServiceBase).Run.func1()
+	C:/Users/Administrator/go/pkg/mod/github.com/liwei1dao/lego@v0.0.0-20240305114651-63117f8d82fc/core/cbase/servicebase.go:113 +0x476
+created by github.com/liwei1dao/lego/core/cbase.(*ServiceBase).Run
+	C:/Users/Administrator/go/pkg/mod/github.com/liwei1dao/lego@v0.0.0-20240305114651-63117f8d82fc/core/cbase/servicebase.go:86 +0xde
+

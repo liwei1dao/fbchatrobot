@@ -1,0 +1,17 @@
+2024/03/07 14:51:32.661	INFO	init sys.fbmessager success!
+2024/03/07 14:51:32.669	INFO	服务[fbrobot] 初始化完成!
+2024/03/07 14:51:32.669	INFO	服务[fbrobot:1.0.0] 启动完成!
+2024/03/07 14:51:32.670	DEBUG	[sys.gin]	Listening and serving HTTP on:7990
+2024/03/07 14:51:32.670	DEBUG	[sys.gin]	GET:/test --> fbrobot/modules/fbrobot.(*apiComp).Test-fm handlers:3
+2024/03/07 14:51:32.670	DEBUG	[sys.gin]	GET:/webhook --> fbrobot/modules/fbrobot.(*apiComp).Webhook-fm handlers:3
+2024/03/07 14:51:32.670	DEBUG	[sys.gin]	POST:/webhook --> fbrobot/modules/fbrobot.(*apiComp).Webhook-fm handlers:3
+2024/03/07 14:51:32.670	DEBUG	[sys.gin]	PUT:/webhook --> fbrobot/modules/fbrobot.(*apiComp).Webhook-fm handlers:3
+2024/03/07 14:51:32.670	DEBUG	[sys.gin]	PATCH:/webhook --> fbrobot/modules/fbrobot.(*apiComp).Webhook-fm handlers:3
+2024/03/07 14:51:32.670	DEBUG	[sys.gin]	HEAD:/webhook --> fbrobot/modules/fbrobot.(*apiComp).Webhook-fm handlers:3
+2024/03/07 14:51:32.670	DEBUG	[sys.gin]	OPTIONS:/webhook --> fbrobot/modules/fbrobot.(*apiComp).Webhook-fm handlers:3
+2024/03/07 14:51:32.670	DEBUG	[sys.gin]	DELETE:/webhook --> fbrobot/modules/fbrobot.(*apiComp).Webhook-fm handlers:3
+2024/03/07 14:51:32.670	DEBUG	[sys.gin]	CONNECT:/webhook --> fbrobot/modules/fbrobot.(*apiComp).Webhook-fm handlers:3
+2024/03/07 14:51:32.670	DEBUG	[sys.gin]	TRACE:/webhook --> fbrobot/modules/fbrobot.(*apiComp).Webhook-fm handlers:3
+2024/03/07 14:51:32.670	DEBUG	启动模块【fbrobot】
+2024/03/07 14:51:35.782	DEBUG	[sys.gin]	[FORMATTER TEST] 2024/03/07 - 14:51:35 | 200 |    1.5800221s |       127.0.0.1 | GET     /test
+

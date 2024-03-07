@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  go_resstation:
+    image: golang:alpine
+    container_name: go_resstation
+    ports:
+      - 8000:8000
+    volumes:
+      - ./:/usr/local/resstation
+    working_dir: /usr/local/resstation
+    entrypoint: ["./fbrobot", "-conf", "./conf/resstation.yaml"]

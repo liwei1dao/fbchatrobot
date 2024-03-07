@@ -1,0 +1,17 @@
+{
+    "window.zoomLevel": 1,
+    "go.docsTool": "gogetdoc",
+    "go.formatTool": "goimports",
+    "explorer.confirmDelete": false,
+    "go.lintFlags": ["--disable=varcheck", "--enable=errcheck"],
+    "files.exclude": {
+      "*-template/": true
+    },
+    "protoc": {
+      "options": ["--proto_path=../pb/proto"]
+    },
+    // 控制通过 Quick Open 打开的编辑器是否显示为预览编辑器。预览编辑器不会保持打开状态，在将其显式设置为保持打开(例如通过双击或编辑)前将会重复使用。当 "#workbench.editor.enablePreview#" 处于禁用状态时，将忽略此值。
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.editor.enablePreview": false
+  }
+  

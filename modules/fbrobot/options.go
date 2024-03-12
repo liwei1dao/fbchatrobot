@@ -9,9 +9,10 @@ import (
 
 type (
 	Options struct {
-		ListenPort int    //监听端口
-		DomainName string //域名
-		Debug      bool   //日志是否开启
+		ListenPort int      //监听端口
+		LetEncrypt bool     //是否支持LetEncrypt 证书
+		DomainName []string //域名
+		Debug      bool     //日志是否开启
 		Log        log.ILogger
 	}
 )

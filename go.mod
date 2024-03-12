@@ -4,7 +4,7 @@ go 1.18
 
 require (
 	github.com/go-ego/gse v0.80.2
-	github.com/liwei1dao/lego v0.0.0-20240305114651-63117f8d82fc
+	github.com/liwei1dao/lego v0.0.0-20240308014757-37a57fd4af7b
 	gopkg.in/maciekmm/messenger-platform-go-sdk.v4 v4.0.0-20160825111906-0cb6e825b6fb
 )
 

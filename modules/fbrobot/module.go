@@ -37,9 +37,9 @@ func (this *FBRobot) Init(service core.IService, module core.IModule, options co
 	}
 	if this.gin, err = gin.NewSys(
 		gin.SetListenPort(this.options.ListenPort),
-		gin.SetLetEncrypt(false),
-		gin.SetDomain([]string{this.options.DomainName}),
-		gin.SetDebug(true),
+		gin.SetLetEncrypt(this.options.LetEncrypt),
+		gin.SetDomain(this.options.DomainName),
+		gin.SetDebug(this.options.Debug),
 	); err != nil {
 		return
 	}

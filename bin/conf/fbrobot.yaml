@@ -19,4 +19,6 @@ sys:
 modules:
   fbrobot:
     ListenPort: 7990
-    DomainName: “ai.ppdy.io”
+    LetEncrypt: false
+    DomainName: [ppdy.io”, “ai.ppdy.io”]
+    Debug: true

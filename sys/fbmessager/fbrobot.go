@@ -9,7 +9,6 @@ import (
 	"io"
 	"io/ioutil"
 	"net/http"
-	"net/url"
 
 	"gopkg.in/maciekmm/messenger-platform-go-sdk.v4"
 )
@@ -36,12 +35,10 @@ type FBRobot struct {
 func (this *FBRobot) Handler(rw http.ResponseWriter, req *http.Request) {
 	secretKey := this.option.VerifyToken
 	if req.Method == "GET" {
-		u, _ := url.Parse(req.RequestURI)
-		values, _ := url.ParseQuery(u.RawQuery)
-		token := values.Get("hub.verify_token")
-		if token == secretKey {
+		verifyToken := req.URL.Query().Get("hub.verify_token")
+		if verifyToken == secretKey {
 			rw.WriteHeader(200)
-			rw.Write([]byte(values.Get("hub.challenge")))
+			rw.Write([]byte(req.URL.Query().Get("hub.challenge")))
 			return
 		}
 		rw.WriteHeader(400)

@@ -27,7 +27,7 @@ func SetLog(v log.ILogger) Option {
 func newOptions(config map[string]interface{}, opts ...Option) (options *Options, err error) {
 	options = &Options{}
 	if config != nil {
-		mapstructure.Decode(config, &options)
+		mapstructure.Decode(config, options)
 	}
 	for _, o := range opts {
 		o(options)

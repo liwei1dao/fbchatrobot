@@ -9,6 +9,7 @@ import (
 	"io"
 	"io/ioutil"
 	"net/http"
+	"net/url"
 
 	"gopkg.in/maciekmm/messenger-platform-go-sdk.v4"
 )
@@ -33,23 +34,37 @@ type FBRobot struct {
 
 // 接收facebook messager的消息
 func (this *FBRobot) Handler(rw http.ResponseWriter, req *http.Request) {
+	secretKey := "secret_token"
 	if req.Method == "GET" {
-		query := req.URL.Query()
-		verifyToken := query.Get("hub.verify_token")
-		this.option.Log.Debugf("Handle", req.Method, " token=", verifyToken, " verify_token=", this.option.VerifyToken)
-		if verifyToken != this.option.VerifyToken {
-			rw.WriteHeader(http.StatusUnauthorized)
-			this.option.Log.Debugf("StatusUnauthorized")
+		u, _ := url.Parse(req.RequestURI)
+		values, _ := url.ParseQuery(u.RawQuery)
+		token := values.Get("hub.verify_token")
+		if token == secretKey {
+			rw.WriteHeader(200)
+			rw.Write([]byte(values.Get("hub.challenge")))
 			return
 		}
-		rw.WriteHeader(http.StatusOK)
-		this.option.Log.Debugf("RET:", query.Get("hub.challenge"))
-		rw.Write([]byte(query.Get("hub.challenge")))
-	} else if req.Method == "POST" {
-		this.handlePOST(rw, req)
-	} else {
-		rw.WriteHeader(http.StatusMethodNotAllowed)
+		rw.WriteHeader(400)
+		rw.Write([]byte(`Bad token`))
+		return
 	}
+	// if req.Method == "GET" {
+	// 	query := req.URL.Query()
+	// 	verifyToken := query.Get("hub.verify_token")
+	// 	this.option.Log.Debugf("Handle", req.Method, " token=", verifyToken, " verify_token=", this.option.VerifyToken)
+	// 	if verifyToken != this.option.VerifyToken {
+	// 		rw.WriteHeader(http.StatusUnauthorized)
+	// 		this.option.Log.Debugf("StatusUnauthorized")
+	// 		return
+	// 	}
+	// 	rw.WriteHeader(http.StatusOK)
+	// 	this.option.Log.Debugf("RET:", query.Get("hub.challenge"))
+	// 	rw.Write([]byte(query.Get("hub.challenge")))
+	// } else if req.Method == "POST" {
+	// 	this.handlePOST(rw, req)
+	// } else {
+	// 	rw.WriteHeader(http.StatusMethodNotAllowed)
+	// }
 }
 
 func (this *FBRobot) handlePOST(rw http.ResponseWriter, req *http.Request) {

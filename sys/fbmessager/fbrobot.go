@@ -34,7 +34,7 @@ type FBRobot struct {
 
 // 接收facebook messager的消息
 func (this *FBRobot) Handler(rw http.ResponseWriter, req *http.Request) {
-	secretKey := "secret_token"
+	secretKey := this.option.VerifyToken
 	if req.Method == "GET" {
 		u, _ := url.Parse(req.RequestURI)
 		values, _ := url.ParseQuery(u.RawQuery)
